@@ -24,10 +24,14 @@
   --color-line: #06c755; /* LINE ブランドカラー */
   --color-line-dark: #05a648;
 
-  /* --- タイポグラフィ --- */
-  --font-base: "Hiragino Kaku Gothic ProN", "Hiragino Sans",
-    "BIZ UDPGothic", "Noto Sans JP", "Yu Gothic", "Meiryo", system-ui,
-    -apple-system, sans-serif;
+  /* --- タイポグラフィ ---
+     next/font（layout.tsx）が --font-noto-sans-jp / --font-zen-maru を注入。
+     読み込めない環境でも崩れないよう、後ろにOSフォントを控えさせる。 */
+  --font-base: var(--font-noto-sans-jp), "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans", "BIZ UDPGothic", "Noto Sans JP", "Yu Gothic", "Meiryo",
+    system-ui, -apple-system, sans-serif;
+  /* 見出しも本文と同じ書体（丸ゴシック案は不採用：2026-07） */
+  --font-display: var(--font-base);
 
   /* --- 余白（8pxグリッド基準） --- */
   --space-1: 0.5rem;

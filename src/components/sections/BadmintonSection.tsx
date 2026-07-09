@@ -33,7 +33,10 @@ export function BadmintonSection() {
           <ul className="badminton__items">
             {badminton.items.map((item) => (
               <li className="badminton__item" key={item}>
-                🏸 {item}
+                <span className="badminton__item-icon" aria-hidden="true">
+                  🏸
+                </span>
+                <span className="badminton__item-text">{item}</span>
               </li>
             ))}
           </ul>

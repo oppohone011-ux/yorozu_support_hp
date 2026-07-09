@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
 import { site } from "@/data/site";
 import { areas } from "@/data/areas";
@@ -6,6 +7,19 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { StickyCta } from "@/components/layout/StickyCta";
 import { LineModal } from "@/components/layout/LineModal";
+
+/**
+ * Webフォント（next/fontで自前配信・FOUT対策込み）。
+ * 本文・見出しとも Noto Sans JP。OSに依存せず、どの端末でも同じ読みやすさに。
+ * （見出し用の丸ゴシック Zen Maru Gothic は試したが不採用：2026-07）
+ */
+const notoSansJp = Noto_Sans_JP({
+  subsets: ["latin"],
+  weight: ["400", "500", "700", "900"],
+  variable: "--font-noto-sans-jp",
+  display: "swap",
+  preload: false,
+});
 
 /**
  * SEO・OGPの基本設定。
@@ -114,7 +128,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ja">
+    <html lang="ja" className={notoSansJp.variable}>
       <body>
         <script
           type="application/ld+json"

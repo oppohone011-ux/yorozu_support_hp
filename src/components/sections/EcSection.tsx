@@ -1,8 +1,32 @@
+import { Fragment } from "react";
 import { ec } from "@/data/ec";
 import { ectride } from "@/data/ectride";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Icon } from "@/components/ui/Icon";
+
+/**
+ * 「楽天・Yahoo!・フリマ・中国輸入」のような長い値は、
+ * 「・」の直後にだけ改行候補（wbr）を入れて語の途中で割れないようにする。
+ * （CSS側の word-break: keep-all とセットで機能する）
+ */
+function HighlightValue({ value }: { value: string }) {
+  const parts = value.split("・");
+  return (
+    <>
+      {parts.map((part, i) => (
+        <Fragment key={i}>
+          {part}
+          {i < parts.length - 1 && (
+            <>
+              ・<wbr />
+            </>
+          )}
+        </Fragment>
+      ))}
+    </>
+  );
+}
 
 /**
  * 物販・EC の活動紹介。
@@ -19,7 +43,9 @@ export function EcSection() {
           {ec.highlights.map((h) => (
             <div className="ec-highlight" key={h.label}>
               <span className="ec-highlight__label">{h.label}</span>
-              <span className="ec-highlight__value">{h.value}</span>
+              <span className="ec-highlight__value">
+                <HighlightValue value={h.value} />
+              </span>
               <span className="ec-highlight__note">{h.note}</span>
             </div>
           ))}

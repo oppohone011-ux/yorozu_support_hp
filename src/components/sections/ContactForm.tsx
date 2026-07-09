@@ -139,16 +139,6 @@ export function ContactForm() {
       <button type="submit" className="btn btn--accent btn--block">
         ✉️ メールを作成して送る
       </button>
-
-      <p className="contact-form__note">
-        送信いただいた内容は
-        <a href="/privacy" target="_blank" rel="noopener">
-          プライバシーポリシー
-        </a>
-        に沿って取り扱います。
-        <br />※ 送信ボタンでメールアプリが開きます。開かない場合は、お手数ですが{" "}
-        {contact.email.value} へ直接ご連絡ください。
-      </p>
     </form>
   );
 }
