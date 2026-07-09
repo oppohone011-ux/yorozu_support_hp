@@ -61,28 +61,11 @@ export function HeroSection() {
             </ul>
           </div>
 
-          {/* 右：イラスト枠＋浮かぶアイコン */}
+          {/* 右：スライドショー（背面に傾きカードの飾り） */}
           <div className="hero__visual" aria-hidden="true">
             <div className="hero__art">
               <HeroSlideshow />
             </div>
-
-            {/* 周囲に浮かぶサービスアイコン */}
-            <span className="hero__float hero__float--1">
-              <Icon name="pc" size={26} color="#3b82c4" boxed />
-            </span>
-            <span className="hero__float hero__float--2">
-              <Icon name="tools" size={26} color="#4a9d5f" boxed />
-            </span>
-            <span className="hero__float hero__float--3">
-              <Icon name="recycle" size={26} color="#2fa39a" boxed />
-            </span>
-            <span className="hero__float hero__float--4">
-              <Icon name="badminton" size={26} color="#5566cc" boxed />
-            </span>
-            <span className="hero__float hero__float--5">
-              <Icon name="cart" size={26} color="#e05a7a" boxed />
-            </span>
           </div>
         </div>
 
