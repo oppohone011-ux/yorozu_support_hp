@@ -334,14 +334,34 @@ img {
   width: 100%;
 }
 
+/* 後ろに重なる「めくった紙」風の飾りカード */
+.hero__visual::before {
+  content: "";
+  position: absolute;
+  inset: 5%;
+  border-radius: var(--radius-lg);
+  background: var(--color-accent-soft);
+  transform: rotate(4deg);
+}
+
+.hero__visual::after {
+  content: "";
+  position: absolute;
+  inset: 5%;
+  border-radius: var(--radius-lg);
+  background: var(--color-primary-soft);
+  transform: rotate(-3deg);
+}
+
 .hero__art {
   position: absolute;
-  inset: 8%;
-  border-radius: 50%; /* 丸枠（画像四隅の文字は多少切れる仕様） */
+  inset: 4%;
+  border-radius: var(--radius-lg);
   background: var(--color-surface);
   box-shadow: var(--shadow-md);
   overflow: hidden;
   border: 6px solid #fff;
+  z-index: 1;
 }
 
 /* スライドショー（クロスフェード＋ほんのりズーム） */
@@ -370,7 +390,7 @@ img {
 
 .hero-slideshow__dots {
   position: absolute;
-  bottom: 7%; /* 丸枠の中に収まる高さ */
+  bottom: 12px;
   left: 0;
   right: 0;
   display: flex;
@@ -399,6 +419,7 @@ img {
 .hero__float {
   position: absolute;
   animation: hero-float 4s ease-in-out infinite;
+  z-index: 2;
 }
 
 .hero__float .icon-box {
