@@ -2955,3 +2955,108 @@ img {
     font-size: 0.85rem;
   }
 }
+
+/* =========================================================
+   プライバシーポリシー / 404
+   ========================================================= */
+.policy-list {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.policy-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  box-shadow: var(--shadow-sm);
+}
+
+.policy-card__title {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  font-size: 1rem;
+  font-weight: 800;
+  margin-bottom: 0.5em;
+}
+
+.policy-card__title .icon-box {
+  width: 2.1em;
+  height: 2.1em;
+  border-radius: 10px;
+  background: var(--color-primary-soft);
+}
+
+.policy-card__body {
+  color: var(--color-text-muted);
+  font-size: 0.92rem;
+  line-height: 1.9;
+}
+
+.policy-contact {
+  margin-top: var(--space-4);
+  text-align: center;
+  font-size: 0.92rem;
+}
+
+.policy-contact a {
+  color: var(--color-primary);
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.policy-contact__date {
+  margin-top: var(--space-3);
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+}
+
+/* フッターのポリシーリンク */
+.footer__policy {
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: underline;
+}
+
+.footer__policy:hover {
+  color: #fff;
+}
+
+/* フォーム下のポリシーリンク */
+.contact-form__note a {
+  color: var(--color-primary);
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+/* 404ページ */
+.notfound {
+  text-align: center;
+  padding-block: var(--space-5);
+}
+
+.notfound__code {
+  font-size: 4.5rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  line-height: 1;
+  opacity: 0.35;
+}
+
+.notfound__title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin: 0.4em 0 0.8em;
+}
+
+.notfound__lead {
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-4);
+}
+
+.notfound__actions {
+  display: flex;
+  gap: var(--space-2);
+  justify-content: center;
+  flex-wrap: wrap;
+}

@@ -23,7 +23,10 @@ export function Footer() {
 
       <div className="container">
         <p className="footer__copy">
-          © {year} {site.name}
+          <a className="footer__policy" href="/privacy">
+            プライバシーポリシー
+          </a>
+          <br />© {year} {site.name}
         </p>
       </div>
     </footer>
