@@ -561,15 +561,22 @@ img {
 
 /* ---------- プロフィール ---------- */
 .profile {
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: var(--space-5);
-  align-items: center;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   padding: var(--space-5);
   box-shadow: var(--shadow-sm);
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+/* 上段：顔ブロック */
+.profile__header {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: var(--space-5);
+  align-items: center;
+  margin-bottom: var(--space-4);
 }
 
 .profile__photo {
@@ -620,26 +627,61 @@ img {
 
 .profile__bio {
   color: var(--color-text-muted);
-  margin-bottom: var(--space-3);
-}
-
-.profile__facts {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5em;
-}
-
-.profile__fact {
-  display: flex;
-  gap: 0.6em;
   font-size: 0.95rem;
+  line-height: 1.9;
 }
 
-.profile__fact-label {
-  flex-shrink: 0;
+/* 下段：ファクトカード */
+.profile__facts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2);
+  border-top: 1px dashed var(--color-border);
+  padding-top: var(--space-4);
+}
+
+.fact-card {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-2) var(--space-3);
+  text-align: left;
+}
+
+.fact-card__label {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  font-weight: 800;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-bottom: 0.5em;
+}
+
+.fact-card__label .icon-box {
+  width: 1.9em;
+  height: 1.9em;
+  border-radius: 8px;
+}
+
+.fact-card__text {
+  font-size: 0.92rem;
+  line-height: 1.8;
+}
+
+.fact-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4em;
+}
+
+.fact-card__tag {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  padding: 0.25em 0.8em;
+  font-size: 0.8rem;
   font-weight: 700;
-  color: var(--color-primary);
-  min-width: 5em;
 }
 
 /* ---------- 依頼の流れ（イラスト4枚） ---------- */
@@ -1172,14 +1214,33 @@ img {
   }
 
   .profile {
-    grid-template-columns: 1fr;
-    justify-items: center;
-    text-align: center;
-    padding: var(--space-4);
+    padding: var(--space-3);
   }
 
-  .profile__fact {
-    justify-content: center;
+  /* 顔ブロックは中央寄せ（写真→名前→一言の順に縦積み） */
+  .profile__header {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+    justify-items: center;
+    text-align: center;
+    margin-bottom: var(--space-3);
+  }
+
+  /* 一言バブルと自己紹介は読み物なので左揃えに */
+  .profile__motto {
+    text-align: left;
+    font-size: 0.95rem;
+  }
+
+  .profile__bio {
+    text-align: left;
+    font-size: 0.9rem;
+  }
+
+  /* ファクトカードは1列・左揃え（散らかり防止の要） */
+  .profile__facts {
+    grid-template-columns: 1fr;
+    padding-top: var(--space-3);
   }
 
   /* 下部に常に相談ボタンを追従表示（iPhoneのホームバー分も確保） */
