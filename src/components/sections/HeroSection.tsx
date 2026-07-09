@@ -3,6 +3,7 @@ import { services } from "@/data/services";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
+import { HeroSlideshow } from "@/components/sections/HeroSlideshow";
 
 /**
  * ファーストビュー。参考デザインに合わせた2カラム構成。
@@ -52,13 +53,7 @@ export function HeroSection() {
           {/* 右：イラスト枠＋浮かぶアイコン */}
           <div className="hero__visual" aria-hidden="true">
             <div className="hero__art">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/hero-illustration.png"
-                alt=""
-                width={440}
-                height={440}
-              />
+              <HeroSlideshow />
             </div>
 
             {/* 周囲に浮かぶサービスアイコン */}
