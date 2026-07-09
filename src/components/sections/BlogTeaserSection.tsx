@@ -6,11 +6,13 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 
 /**
  * ブログ・お知らせ（トップページ用）。
- * microCMSに記事があれば最新3件を表示し、
+ * 記事が増えても散らからないよう、表示は固定枠：
+ *   - カード: 最新4件まで（2×2グリッド）
+ *   - 新着: 最新3件をテキスト1行ずつ
  * 未設定・記事0件なら「近日公開」の予告を表示する。
  */
 export async function BlogTeaserSection() {
-  const posts = isBlogConfigured() ? await getBlogPosts(3) : [];
+  const posts = isBlogConfigured() ? await getBlogPosts(4) : [];
 
   if (posts.length === 0) {
     return (
@@ -33,6 +35,9 @@ export async function BlogTeaserSection() {
     );
   }
 
+  const cards = posts.slice(0, 4);
+  const recent = posts.slice(0, 3);
+
   return (
     <section className="section" id="blog">
       <Container>
@@ -42,8 +47,9 @@ export async function BlogTeaserSection() {
           lead="地元での活動や、暮らしに役立つ情報を発信しています。"
         />
 
-        <div className="blog-grid">
-          {posts.map((post) => (
+        {/* カード（最大2×2） */}
+        <div className="blog-grid blog-grid--teaser">
+          {cards.map((post) => (
             <article className="blog-card" key={post.id}>
               <Link href={`/blog/${post.id}`} className="blog-card__link">
                 <div className="blog-card__eyecatch">
@@ -76,6 +82,21 @@ export async function BlogTeaserSection() {
               </Link>
             </article>
           ))}
+        </div>
+
+        {/* 新着（テキスト3件） */}
+        <div className="blog-recent">
+          <p className="blog-recent__heading">🆕 新着記事</p>
+          <ul className="blog-recent__list">
+            {recent.map((post) => (
+              <li className="blog-recent__item" key={post.id}>
+                <time dateTime={post.publishedAt}>
+                  {formatDate(post.publishedAt)}
+                </time>
+                <Link href={`/blog/${post.id}`}>{post.title}</Link>
+              </li>
+            ))}
+          </ul>
         </div>
 
         <p className="blog-more">
