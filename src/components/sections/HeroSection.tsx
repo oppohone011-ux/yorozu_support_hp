@@ -1,5 +1,4 @@
 import { contact } from "@/data/site";
-import { trustBadges } from "@/data/experience";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
@@ -49,15 +48,6 @@ export function HeroSection() {
               現場もPCも知っている経験豊富なサポート役が、そんな“ちょっと困った”に寄り添います。
             </p>
 
-            {/* こんな人です（経歴・事実ベース。枠なしのすっきり表記） */}
-            <ul className="hero__trust">
-              {trustBadges.map((badge) => (
-                <li className="hero__trust-item" key={badge.label}>
-                  <Icon name={badge.icon} size={16} color={badge.color} />
-                  {badge.label}
-                </li>
-              ))}
-            </ul>
           </div>
 
           {/* 右：スライドショー（背面に傾きカードの飾り） */}
