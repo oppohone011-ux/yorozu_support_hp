@@ -1,5 +1,4 @@
 import { contact } from "@/data/site";
-import { services } from "@/data/services";
 import { trustBadges } from "@/data/experience";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
@@ -50,11 +49,11 @@ export function HeroSection() {
               現場もPCも知っている経験豊富なサポート役が、そんな“ちょっと困った”に寄り添います。
             </p>
 
-            {/* こんな人です（信頼バッジ・事実ベース） */}
+            {/* こんな人です（経歴・事実ベース。枠なしのすっきり表記） */}
             <ul className="hero__trust">
               {trustBadges.map((badge) => (
-                <li className="hero__trust-badge" key={badge.label}>
-                  <Icon name={badge.icon} size={15} color={badge.color} />
+                <li className="hero__trust-item" key={badge.label}>
+                  <Icon name={badge.icon} size={16} color={badge.color} />
                   {badge.label}
                 </li>
               ))}
@@ -69,15 +68,6 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* サービスのタグ（下部） */}
-        <ul className="hero__tags">
-          {services.map((service) => (
-            <li className="hero__tag" key={service.slug}>
-              <Icon name={service.icon} size={16} color={service.color} />
-              {service.title}
-            </li>
-          ))}
-        </ul>
       </Container>
     </section>
   );

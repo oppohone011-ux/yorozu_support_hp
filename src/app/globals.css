@@ -325,30 +325,27 @@ img {
   color: var(--color-text-muted);
 }
 
-/* こんな人です（信頼バッジ：2×2の整列グリッド） */
+/* こんな人です（経歴リスト：枠なしのすっきり表記） */
 .hero__trust {
   margin-top: var(--space-3);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-border);
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.6em;
-  max-width: 440px;
+  grid-template-columns: repeat(2, minmax(0, auto));
+  justify-content: start;
+  gap: 0.7em 2.2em;
 }
 
-.hero__trust-badge {
+.hero__trust-item {
   display: flex;
   align-items: center;
-  gap: 0.55em;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  padding: 0.6em 0.9em;
-  font-size: 0.85rem;
-  font-weight: 800;
-  box-shadow: var(--shadow-sm);
-  white-space: nowrap;
+  gap: 0.5em;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--color-text);
 }
 
-.hero__trust-badge svg {
+.hero__trust-item svg {
   flex-shrink: 0;
 }
 
@@ -447,27 +444,6 @@ img {
 }
 
 /* （浮遊アイコンは撤去：スライド画像と被るため。2026-07判断） */
-
-.hero__tags {
-  margin-top: var(--space-5);
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6em;
-  justify-content: center;
-}
-
-.hero__tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4em;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-pill);
-  padding: 0.45em 1em;
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--color-text);
-}
 
 /* ---------- 悩み・共感 ---------- */
 .problem-grid {
@@ -2801,25 +2777,6 @@ img {
     width: 100%;
   }
 
-  /* サービスタグは1行の横スクロールに */
-  .hero__tags {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    justify-content: flex-start;
-    margin-inline: calc(-1 * var(--space-3));
-    padding-inline: var(--space-3);
-    scrollbar-width: none;
-    margin-top: var(--space-3);
-  }
-
-  .hero__tags::-webkit-scrollbar {
-    display: none;
-  }
-
-  .hero__tag {
-    flex: 0 0 auto;
-  }
-
   /* ---------- その他メディアの縮小 ---------- */
   .ec-video {
     border-radius: var(--radius-md);
@@ -2931,16 +2888,18 @@ img {
   }
 }
 
-/* 信頼バッジ・料金表のスマホ調整 */
+/* 経歴リスト・料金表のスマホ調整 */
 @media (max-width: 720px) {
+  /* 中央寄せ・自然な折返し（見切れ防止） */
   .hero__trust {
+    justify-content: center;
+    gap: 0.6em 1.4em;
     margin-inline: auto;
     max-width: 380px;
   }
 
-  .hero__trust-badge {
-    font-size: 0.78rem;
-    padding: 0.55em 0.7em;
+  .hero__trust-item {
+    font-size: 0.82rem;
   }
 
   .price-row {
