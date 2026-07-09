@@ -1,5 +1,6 @@
 import { site, navLinks } from "@/data/site";
 import { Icon } from "@/components/ui/Icon";
+import { MobileMenu } from "@/components/layout/MobileMenu";
 
 /**
  * 上部の追従ヘッダー。屋号 + ナビのみ。
@@ -26,6 +27,9 @@ export function Header() {
             ))}
           </ul>
         </nav>
+
+        {/* スマホ用ハンバーガー（PCでは非表示） */}
+        <MobileMenu />
       </div>
     </header>
   );
