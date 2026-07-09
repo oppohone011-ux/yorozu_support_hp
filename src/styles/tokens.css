@@ -1,0 +1,54 @@
+/* =========================================================
+   デザイントークン
+   色・余白・角丸・影・フォントなどの基準値をここで一元管理。
+   変更するときは基本このファイルを触れば全体に反映されます。
+   詳しい方針は docs/02_design_policy.md を参照。
+   ========================================================= */
+:root {
+  /* --- 配色：唐津の海と松原をイメージした、落ち着いた地元カラー --- */
+  --color-bg: #fbf8f2; /* 全体背景：あたたかいクリーム */
+  --color-bg-alt: #f2ede3; /* セクション交互の背景 */
+  --color-surface: #ffffff; /* カードなどの面 */
+  --color-text: #2f2a24; /* 本文：黒すぎない茶系ダーク */
+  --color-text-muted: #6f6659; /* 補足テキスト */
+  --color-border: #e6ddcd; /* 罫線・カード枠 */
+
+  --color-primary: #2f7d5b; /* メイン：安心感のある深緑 */
+  --color-primary-dark: #245f45;
+  --color-primary-soft: #e4f0ea; /* 淡い緑の背景 */
+
+  --color-accent: #e08a3c; /* アクセント：あたたかいオレンジ */
+  --color-accent-dark: #c4712a;
+  --color-accent-soft: #fbeee0;
+
+  --color-line: #06c755; /* LINE ブランドカラー */
+  --color-line-dark: #05a648;
+
+  /* --- タイポグラフィ --- */
+  --font-base: "Hiragino Kaku Gothic ProN", "Hiragino Sans",
+    "BIZ UDPGothic", "Noto Sans JP", "Yu Gothic", "Meiryo", system-ui,
+    -apple-system, sans-serif;
+
+  /* --- 余白（8pxグリッド基準） --- */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-5: 3rem;
+  --space-6: 4rem;
+  --space-7: 6rem;
+
+  /* --- レイアウト --- */
+  --container-max: 1080px;
+  --container-narrow: 720px;
+
+  /* --- 角丸 --- */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-pill: 999px;
+
+  /* --- 影：やわらかく、圧迫感を出さない --- */
+  --shadow-sm: 0 2px 8px rgba(47, 42, 36, 0.06);
+  --shadow-md: 0 8px 24px rgba(47, 42, 36, 0.08);
+}
