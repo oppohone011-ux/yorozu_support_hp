@@ -1,25 +1,63 @@
 /**
- * 料金の考え方。
- * ルール（docs/03_content_policy.md）：断定価格は書かない。
- * 「内容によってお見積り」「時間単位でも対応可」という表現にとどめる。
- * ※ 具体的な金額は今後決定。決まったら price を埋める。
+ * 料金の目安。
+ * 金額は運営者決定（2026-07-09）。「〜／時間」の目安表記で、
+ * 断定・固定価格にはしない（docs/03_content_policy.md）。
  */
+import type { IconName } from "@/components/ui/Icon";
 
 export const pricingPolicy = {
-  headline: "内容に応じてお見積りいたします",
+  headline: "料金の目安",
   lead: "ご相談・お見積りは無料です。作業前に目安をお伝えし、ご納得いただいてから対応します。",
-  note: "※ 料金は内容により異なります。金額は今後決定・掲載予定です。まずはお気軽にご相談ください。",
+  notes: [
+    "料金はあくまで目安です。作業内容・作業時間・場所に応じて変動する場合があります。",
+    "交通費は別途いただきます。",
+    "まずはお気軽にご相談ください。",
+  ],
 };
 
-export type PriceUnit = {
-  label: string;
-  price?: string; // 未定のうちは空。決まったら "3,000円〜" のように入れる。
+export type PriceRow = {
+  icon: IconName;
+  color: string;
+  service: string;
+  price: string;
 };
 
-/** 時間単位の参考（金額は今後決定） */
-export const priceUnits: PriceUnit[] = [
-  { label: "30分" },
-  { label: "1時間" },
-  { label: "半日" },
-  { label: "1日" },
+/** サービス別の料金目安 */
+export const priceList: PriceRow[] = [
+  {
+    icon: "pc",
+    color: "#3b82c4",
+    service: "AI・パソコンサポート",
+    price: "3,000円〜 / 時間",
+  },
+  {
+    icon: "ai",
+    color: "#8b5cf6",
+    service: "システム開発・自動化",
+    price: "お見積り",
+  },
+  {
+    icon: "home",
+    color: "#4a9d5f",
+    service: "家のお手伝い・荷物の移動",
+    price: "3,000円〜 / 時間",
+  },
+  {
+    icon: "truck",
+    color: "#b58a3c",
+    service: "現場仕事",
+    price: "3,000円〜 / 時間",
+  },
+  {
+    icon: "chat",
+    color: "#e08a3c",
+    service: "相談・話し相手",
+    price: "2,000円〜 / 時間",
+  },
+  {
+    icon: "badminton",
+    color: "#5566cc",
+    service: "バドミントンの練習相手",
+    price: "2,000円〜 / 2時間",
+  },
 ];

@@ -39,6 +39,17 @@ export const devWorks: string[] = [
   "物販支援システム「ECライド」（個人開発）",
 ];
 
+/**
+ * ヒーローに表示する信頼バッジ（「こんな人です」を最初に見せる）。
+ * すべて事実ベース（誇張しない）。
+ */
+export const trustBadges: ExperienceField[] = [
+  { icon: "star", color: "#2f7d5b", label: "元自衛官（4年）" },
+  { icon: "ai", color: "#8b5cf6", label: "AI・システム開発" },
+  { icon: "truck", color: "#b58a3c", label: "現場仕事の経験多数" },
+  { icon: "badminton", color: "#5566cc", label: "バドミントン県大会優勝" },
+];
+
 /** 協力体制（一人で抱え込まない安心感） */
 export const partners = {
   title: "協力できる仲間もいます",

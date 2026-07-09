@@ -1,10 +1,11 @@
-import { pricingPolicy, priceUnits } from "@/data/pricing";
+import { pricingPolicy, priceList } from "@/data/pricing";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Icon } from "@/components/ui/Icon";
 
 /**
- * 料金。断定価格は出さず「お見積り」＋時間単位の参考のみ。
- * 金額が決まったら data/pricing.ts の priceUnits に price を入れる。
+ * 料金の目安。サービス別の一覧表＋注意書き。
+ * 金額の変更は data/pricing.ts を編集するだけ。
  */
 export function PricingSection() {
   return (
@@ -16,20 +17,31 @@ export function PricingSection() {
           lead={pricingPolicy.lead}
         />
 
-        <div className="pricing-box">
-          <p className="pricing-box__label">時間単位でも対応できます（参考）</p>
-          <div className="pricing-units">
-            {priceUnits.map((unit) => (
-              <div className="pricing-unit" key={unit.label}>
-                <span className="pricing-unit__label">{unit.label}</span>
-                <span className="pricing-unit__price">
-                  {unit.price ?? "お見積り"}
-                </span>
-              </div>
-            ))}
-          </div>
-          <p className="pricing-box__note">{pricingPolicy.note}</p>
+        <div className="price-table">
+          {priceList.map((row) => (
+            <div className="price-row" key={row.service}>
+              <span className="price-row__service">
+                <Icon name={row.icon} color={row.color} boxed size={18} />
+                {row.service}
+              </span>
+              <span
+                className={
+                  row.price === "お見積り"
+                    ? "price-row__price price-row__price--ask"
+                    : "price-row__price"
+                }
+              >
+                {row.price}
+              </span>
+            </div>
+          ))}
         </div>
+
+        <ul className="price-notes">
+          {pricingPolicy.notes.map((note) => (
+            <li key={note}>※ {note}</li>
+          ))}
+        </ul>
       </Container>
     </section>
   );

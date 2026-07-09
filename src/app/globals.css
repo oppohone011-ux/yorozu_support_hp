@@ -325,6 +325,27 @@ img {
   color: var(--color-text-muted);
 }
 
+/* こんな人です（信頼バッジ） */
+.hero__trust {
+  margin-top: var(--space-3);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+}
+
+.hero__trust-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  padding: 0.35em 0.9em;
+  font-size: 0.82rem;
+  font-weight: 800;
+  box-shadow: var(--shadow-sm);
+}
+
 /* 右：イラスト枠＋浮かぶアイコン */
 .hero__visual {
   position: relative;
@@ -1731,51 +1752,64 @@ img {
   font-size: 0.85rem;
 }
 
-/* ---------- 料金 ---------- */
-.pricing-box {
+/* ---------- 料金（サービス別の目安表） ---------- */
+.price-table {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  padding: var(--space-4);
   box-shadow: var(--shadow-sm);
-  text-align: center;
+  overflow: hidden;
 }
 
-.pricing-box__label {
-  font-weight: 700;
-  margin-bottom: var(--space-3);
-}
-
-.pricing-units {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: var(--space-2);
-}
-
-.pricing-unit {
-  background: var(--color-bg-alt);
-  border-radius: var(--radius-md);
-  padding: var(--space-3) var(--space-2);
+.price-row {
   display: flex;
-  flex-direction: column;
-  gap: 0.3em;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border-bottom: 1px solid var(--color-border);
 }
 
-.pricing-unit__label {
-  font-weight: 800;
-  font-size: 1.1rem;
+.price-row:last-child {
+  border-bottom: none;
 }
 
-.pricing-unit__price {
-  color: var(--color-primary);
+.price-row:nth-child(even) {
+  background: var(--color-bg);
+}
+
+.price-row__service {
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
 }
 
-.pricing-box__note {
+.price-row__service .icon-box {
+  width: 2.1em;
+  height: 2.1em;
+  border-radius: 10px;
+}
+
+.price-row__price {
+  font-weight: 800;
+  color: var(--color-primary);
+  white-space: nowrap;
+}
+
+.price-row__price--ask {
+  color: var(--color-accent-dark);
+}
+
+.price-notes {
   margin-top: var(--space-3);
+  display: grid;
+  gap: 0.3em;
   font-size: 0.82rem;
   color: var(--color-text-muted);
+  max-width: 560px;
+  margin-inline: auto;
 }
 
 /* ---------- 対応地域 ---------- */
@@ -2905,5 +2939,24 @@ img {
   .blog-recent__item {
     flex-direction: column;
     gap: 0.1em;
+  }
+}
+
+/* 信頼バッジ・料金表のスマホ調整 */
+@media (max-width: 720px) {
+  .hero__trust {
+    justify-content: center;
+  }
+
+  .price-row {
+    padding: var(--space-2);
+  }
+
+  .price-row__service {
+    font-size: 0.85rem;
+  }
+
+  .price-row__price {
+    font-size: 0.85rem;
   }
 }

@@ -1,5 +1,6 @@
 import { contact } from "@/data/site";
 import { services } from "@/data/services";
+import { trustBadges } from "@/data/experience";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
@@ -48,6 +49,16 @@ export function HeroSection() {
               <br />
               現場もPCも知っている経験豊富なサポート役が、そんな“ちょっと困った”に寄り添います。
             </p>
+
+            {/* こんな人です（信頼バッジ・事実ベース） */}
+            <ul className="hero__trust">
+              {trustBadges.map((badge) => (
+                <li className="hero__trust-badge" key={badge.label}>
+                  <Icon name={badge.icon} size={15} color={badge.color} />
+                  {badge.label}
+                </li>
+              ))}
+            </ul>
           </div>
 
           {/* 右：イラスト枠＋浮かぶアイコン */}
