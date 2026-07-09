@@ -1,0 +1,6 @@
+# Vercelへアップロードしないもの（デプロイ容量対策）
+media-source
+.next
+node_modules
+*.log
+.env.local

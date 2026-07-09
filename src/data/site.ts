@@ -17,10 +17,10 @@ export const site = {
   seoDescription:
     "佐賀県唐津市の何でも相談窓口。パソコン設定・AI活用・ホームページ制作・業務システム開発から、草刈り・家具移動・不用品整理の相談、バドミントンの練習相手まで。業者に頼むほどでもない小さな困りごとを、地元密着でサポートします。ご相談・お見積り無料。",
   /**
-   * 本番URL。ドメイン取得・デプロイ後に必ず差し替えてください。
-   * （OGP・sitemap・robots がこのURLを基準に生成されます）
+   * 本番URL（OGP・sitemap・robots がこのURLを基準に生成される）。
+   * 独自ドメインを取得したらここを差し替える。
    */
-  url: "https://karatsu-yorozu.example.com",
+  url: "https://yorozuyahidehp.vercel.app",
   // 屋号ロゴ代わりの絵文字（画像を用意したら差し替え）
   logoMark: "🌾",
 } as const;
