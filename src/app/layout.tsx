@@ -80,6 +80,10 @@ export const metadata: Metadata = {
       "max-image-preview": "large",
     },
   },
+  // Google Search Console の所有権確認タグ（2026-07-10 登録）
+  verification: {
+    google: "CUJwBB0MhvlJqRK0YdQFPM4mv6VUKXLhRrh5SSQXLxY",
+  },
 };
 
 export const viewport: Viewport = {
