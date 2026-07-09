@@ -59,6 +59,9 @@ h3,
 
 /* 文節単位で折り返す（「溜まってき／た」のような不自然な改行を防ぐ）。
    対応ブラウザのみ有効・非対応環境では単に無視される。 */
+/* 注意: 幅の狭いカード内テキストに使うと「文節が1語扱い」になって
+   カードやページ全体を横に押し広げることがある（バドミントン対応内容で実害）。
+   余白に余裕のある見出し・本文にだけ適用する。 */
 h1,
 h2,
 h3,
@@ -66,7 +69,6 @@ h3,
 .problem-card__voice,
 .problem-card__desc,
 .badminton__voice,
-.badminton__item,
 .testimonial-card__comment {
   word-break: auto-phrase;
 }
@@ -1450,6 +1452,11 @@ img {
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 0.6em;
   text-align: left;
+}
+
+/* 中身の最小幅でトラックが膨らみ、ページごと横に広がるのを防ぐ */
+.badminton__items > * {
+  min-width: 0;
 }
 
 .badminton__item {
@@ -2860,8 +2867,10 @@ img {
     grid-template-columns: 1fr 1fr;
   }
 
+  /* min-height と aspect-ratio を併用すると「高さを守るため幅が347pxに膨張」して
+     360px以下の端末でページ全体が横に広がる。幅基準（横100%×4:3）だけにする */
   .area-map {
-    min-height: 260px;
+    min-height: 0;
     aspect-ratio: 4 / 3;
   }
 }
@@ -2971,16 +2980,22 @@ img {
     font-size: 0.82rem;
   }
 
+  /* スマホは「項目名の行＋右揃えの料金の行」の2段組みに統一。
+     項目名の長短で中途半端に折り返されるのを防ぎ、全行の形を揃える */
   .price-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.15em;
     padding: var(--space-2);
   }
 
   .price-row__service {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
   }
 
   .price-row__price {
-    font-size: 0.85rem;
+    font-size: 0.95rem;
+    text-align: right;
   }
 }
 
