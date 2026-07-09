@@ -36,7 +36,9 @@ export function EcSection() {
           <div className="ec-media">
             <h3 className="ec-media__title">
               <Icon name="cart" size={20} color="var(--color-primary)" />
-              開発中の物販支援システム「ECライド」
+              <span>
+                開発中の物販支援システム<span className="nowrap">「ECライド」</span>
+              </span>
             </h3>
 
             <div className="ec-video">

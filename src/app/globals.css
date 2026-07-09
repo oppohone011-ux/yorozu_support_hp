@@ -35,6 +35,21 @@ ul {
   margin: 0;
 }
 
+/* 見出しの折り返しを均等に（1〜2文字だけの孤立行を防ぐ） */
+h1,
+h2,
+h3,
+.problem-message__big,
+.profile__name,
+.pay-card__desc {
+  text-wrap: balance;
+}
+
+/* 途中で改行させたくない語（商品名など）用 */
+.nowrap {
+  white-space: nowrap;
+}
+
 ul {
   list-style: none;
   padding: 0;
@@ -2624,5 +2639,62 @@ img {
   .area-map {
     min-height: 260px;
     aspect-ratio: 4 / 3;
+  }
+}
+
+/* =========================================================
+   スマホの文字組み（みっともない折り返しの解消）
+   16文字級の見出しが1行に収まるサイズ設計 + balance併用
+   ========================================================= */
+@media (max-width: 720px) {
+  /* 「困ったら、まず相談してください。」「内容に応じてお見積りいたします」
+     「頼み先に迷う“ちょっと困った”」など16文字級を1行に */
+  .section-heading__title {
+    font-size: clamp(1.2rem, 5.4vw, 1.5rem);
+  }
+
+  .hero__title {
+    font-size: clamp(1.6rem, 7.4vw, 1.95rem);
+  }
+
+  /* 「システム会社に頼むほどじゃない。でも、自分では難しい。」
+     手動改行をやめて自然に2行へ流す（balanceで均等割り） */
+  .problem-message__big {
+    font-size: 1.15rem;
+  }
+
+  .problem-message__big br {
+    display: none;
+  }
+
+  /* 古川 秀幸（ふりがなは名前の下の行に分離） */
+  .profile__name {
+    font-size: 1.25rem;
+  }
+
+  .profile__name-reading {
+    display: block;
+    margin-top: 0.15em;
+  }
+
+  /* 「一緒に面白いことをやりませんか？」等の単独タイトル */
+  .collab__title,
+  .badminton__title {
+    font-size: clamp(1.2rem, 5.4vw, 1.5rem);
+  }
+
+  /* 「開発中の物販支援システム「ECライド」」 */
+  .ec-media__title {
+    font-size: 1rem;
+  }
+
+  .contact-form__title,
+  .contact-panel__title {
+    font-size: 1.1rem;
+  }
+
+  /* 経験タイトル「現場もPCも知っている、〜」（\n改行入り） */
+  .experience .section-heading__title br {
+    display: none;
   }
 }
